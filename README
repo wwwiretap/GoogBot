@@ -25,10 +25,6 @@ To deploy GoogBot we rely on the following applications:
 
 SETUP
 -----
-
-
-
-SETUP
 1. Install the prerequisites mentioned above
 2. clone the git repository to a desired location on your server, for example: /opt/GoogBot
 3. we use a rsync command and run it with a cronjob to maintain a fresh copy 
