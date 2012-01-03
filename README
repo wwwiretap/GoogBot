@@ -1,31 +1,27 @@
-
-Tor XMPP Bot:
-deliverying the Tor Browser Bundles through
-Google Documents API and Jabber XMPP Chat
+***
+*** GoogBot - Tor's Google Jabber, Google Docs delivery system
+*** serving the Tor Browser Bundle via Google Documents API and XMPP IM Robot(Jabber)
+***
 
 OVERVIEW
 --------
-GetTor is a program for serving Tor and related files over SMTP. Users interact
-with GetTor by sending it email.
+GoogBot is a program for serving Tor Browser bundle and manual files over XMPP and Google Docs API. Users interact
+with GoogBot by sending it XMPP (Jabber) IM requests.
 
-The following document explains how to setup GetTor for a server admin.
+The following document explains how to setup GoogBot for a server admin.
 
 PREREQUISITES
 -------------
 
-To deploy GetTor, you'll want a machine that invokes .forward files
-for users. You'll also want to have python (>= 2.5) and rsync installed.
+To deploy GoogBot we rely on the following applications:
+- Python 2.7.1+ - Tested on Ubuntu 10.04 LTS running Python 2.7.1+
+- p7zip-full - apt-get install p7zip-full
+- git-core - apt-get install git-core
+- http://gdata-python-client.googlecode.com/files/gdata-2.0.15.tar.gz (invluded with application)
+- The PHP XMPP Library (included with application)
+- crontab - for rsync jobs
+- php5-cli - apt-get install php5-cli
 
-There are some limits with smtp software for outgoing email sizes. You should
-check your software to ensure that you can send files that are as large
-as the largest files Tor distributes. For postfix, you may want to have a line
-that looks like the following in /etc/postfix/main.cf:
-
-    message_size_limit = 50360000
-
-In Exim, the default message size is now 50MB, which should be sufficient. The
-value is also adaptable through the config file parameter 'message_size_limit'
-in case you need to.
 
 SETUP
 -----
@@ -33,55 +29,15 @@ SETUP
 
 
 SETUP
-1. run setup.py to create necessary sql tables
-2. 
-1. we use a rsync command and run it with a cronjob to maintain a fresh copy 
-of all tor-browser bundles.
-    - rsync -av --delete rsync://rsync.torproject.org/tor/dist/tor-browser dist/
-    - rsync -av --delete rsync://rsync.torproject.org/tor/dist/manual dist/manual
-    https://www.torproject.org/dist/manual/
-    
-2. after each rsync we run our archive-creator file to create zip files 
-containing a short-manual and the requested tor-browser bundle with signatue file.
+1. Install the prerequisites mentioned above
+2. clone the git repository to a desired location on your server, for example: /opt/GoogBot
+3. we use a rsync command and run it with a cronjob to maintain a fresh copy 
+of all tor-browser bundles and to create zip files containing a short-manual and the requested 
+tor-browser bundle with signatue file then upload the zip files to Google Docs.
+All the steps in #3 are implemented: sync-all.py which we need to run as a cron-job"
+Create a cron job running this file at least every 4 horus.
+    rsync://rsync.torproject.org/tor/dist/tor-browser
+    rsync://rsync.torproject.org/tor/dist/manual
+4. Finally rename the config file and enter your email and password for the Bot (GoogBot-server.php) and 
+Google Docs API.
 
-3. 
-
-
-
-tor-browser-2.2.35-
-tor-browser-2.2.35-1_ar_split/
-tor-browser-2.2.35-1_de_split/
-tor-browser-2.2.35-1_en-US_split/
-tor-browser-2.2.35-1_es-ES_split/
-tor-browser-2.2.35-1_fa_split/
-tor-browser-2.2.35-1_fr_split/
-tor-browser-2.2.35-1_it_split/
-tor-browser-2.2.35-1_nl_split/
-tor-browser-2.2.35-1_pl_split/
-tor-browser-2.2.35-1_pt-PT_split/
-tor-browser-2.2.35-1_ru_split/
-tor-browser-2.2.35-1_zh-CN_split/
-tor-browser-2.2.35-2_ar_split/
-tor-browser-2.2.35-2_de_split/
-tor-browser-2.2.35-2_en-US_split/
-tor-browser-2.2.35-2_es-ES_split/
-tor-browser-2.2.35-2_fa_split/
-tor-browser-2.2.35-2_fr_split/
-tor-browser-2.2.35-2_it_split/
-tor-browser-2.2.35-2_nl_split/
-tor-browser-2.2.35-2_pl_split/
-tor-browser-2.2.35-2_pt-PT_split/
-tor-browser-2.2.35-2_ru_split/
-tor-browser-2.2.35-2_zh-CN_split/
-tor-browser-2.2.35-3_ar_split/
-tor-browser-2.2.35-3_de_split/
-tor-browser-2.2.35-3_en-US_split/
-tor-browser-2.2.35-3_es-ES_split/
-tor-browser-2.2.35-3_fa_split/
-tor-browser-2.2.35-3_fr_split/
-tor-browser-2.2.35-3_it_split/
-tor-browser-2.2.35-3_nl_split/
-tor-browser-2.2.35-3_pl_split/
-tor-browser-2.2.35-3_pt-PT_split/
-tor-browser-2.2.35-3_ru_split/
-tor-browser-2.2.35-3_zh-CN_split/
