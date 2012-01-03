@@ -1,0 +1,6 @@
+lib/config.py
+lib/*.pyc
+db/doclist
+zipfiles
+torbrowser
+manual

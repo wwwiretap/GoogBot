@@ -1,0 +1,5 @@
+- add rate limiting to the XMPP bot
+- record minimal information about each transaction (delivery)
+	- country code
+	- date
+	- hash of user email???

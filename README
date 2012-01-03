@@ -1,0 +1,87 @@
+
+Tor XMPP Bot:
+deliverying the Tor Browser Bundles through
+Google Documents API and Jabber XMPP Chat
+
+OVERVIEW
+--------
+GetTor is a program for serving Tor and related files over SMTP. Users interact
+with GetTor by sending it email.
+
+The following document explains how to setup GetTor for a server admin.
+
+PREREQUISITES
+-------------
+
+To deploy GetTor, you'll want a machine that invokes .forward files
+for users. You'll also want to have python (>= 2.5) and rsync installed.
+
+There are some limits with smtp software for outgoing email sizes. You should
+check your software to ensure that you can send files that are as large
+as the largest files Tor distributes. For postfix, you may want to have a line
+that looks like the following in /etc/postfix/main.cf:
+
+    message_size_limit = 50360000
+
+In Exim, the default message size is now 50MB, which should be sufficient. The
+value is also adaptable through the config file parameter 'message_size_limit'
+in case you need to.
+
+SETUP
+-----
+
+
+
+SETUP
+1. run setup.py to create necessary sql tables
+2. 
+1. we use a rsync command and run it with a cronjob to maintain a fresh copy 
+of all tor-browser bundles.
+    - rsync -av --delete rsync://rsync.torproject.org/tor/dist/tor-browser dist/
+    - rsync -av --delete rsync://rsync.torproject.org/tor/dist/manual dist/manual
+    https://www.torproject.org/dist/manual/
+    
+2. after each rsync we run our archive-creator file to create zip files 
+containing a short-manual and the requested tor-browser bundle with signatue file.
+
+3. 
+
+
+
+tor-browser-2.2.35-
+tor-browser-2.2.35-1_ar_split/
+tor-browser-2.2.35-1_de_split/
+tor-browser-2.2.35-1_en-US_split/
+tor-browser-2.2.35-1_es-ES_split/
+tor-browser-2.2.35-1_fa_split/
+tor-browser-2.2.35-1_fr_split/
+tor-browser-2.2.35-1_it_split/
+tor-browser-2.2.35-1_nl_split/
+tor-browser-2.2.35-1_pl_split/
+tor-browser-2.2.35-1_pt-PT_split/
+tor-browser-2.2.35-1_ru_split/
+tor-browser-2.2.35-1_zh-CN_split/
+tor-browser-2.2.35-2_ar_split/
+tor-browser-2.2.35-2_de_split/
+tor-browser-2.2.35-2_en-US_split/
+tor-browser-2.2.35-2_es-ES_split/
+tor-browser-2.2.35-2_fa_split/
+tor-browser-2.2.35-2_fr_split/
+tor-browser-2.2.35-2_it_split/
+tor-browser-2.2.35-2_nl_split/
+tor-browser-2.2.35-2_pl_split/
+tor-browser-2.2.35-2_pt-PT_split/
+tor-browser-2.2.35-2_ru_split/
+tor-browser-2.2.35-2_zh-CN_split/
+tor-browser-2.2.35-3_ar_split/
+tor-browser-2.2.35-3_de_split/
+tor-browser-2.2.35-3_en-US_split/
+tor-browser-2.2.35-3_es-ES_split/
+tor-browser-2.2.35-3_fa_split/
+tor-browser-2.2.35-3_fr_split/
+tor-browser-2.2.35-3_it_split/
+tor-browser-2.2.35-3_nl_split/
+tor-browser-2.2.35-3_pl_split/
+tor-browser-2.2.35-3_pt-PT_split/
+tor-browser-2.2.35-3_ru_split/
+tor-browser-2.2.35-3_zh-CN_split/

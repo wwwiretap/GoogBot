@@ -1,0 +1,30 @@
+#!/usr/bin/python
+# Copyright (c) 2012 Expression Technologies <info@expressiontech.org>
+# Copyright (c) 2012 SiNA <sina@redteam.io>
+# Copyright (c) 2012 The Tor Project, Inc
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+# USA
+#
+import sys
+import config
+import googledoc
+
+client = googledoc.CreateClient()
+
+if (len(sys.argv) > 2):
+    googledoc.ShareWithUser(client,sys.argv[1],sys.argv[2])
+else:
+    print "Error"

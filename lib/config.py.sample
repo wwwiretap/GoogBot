@@ -1,0 +1,12 @@
+ #
+ # XMPP TorRobot configuration file.
+ #
+
+# What email and password are we using for google documents?
+LOGIN_EMAIL = "user@domain.com"
+EMAIL_PASS = "Your Password"
+
+languages = []
+languages = ['ar','cs','de','en-US','es-ES','fa','fr','hu','it','nl','zh-CN']
+
+
