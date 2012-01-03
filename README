@@ -34,6 +34,8 @@ All the steps in #3 are implemented: sync-all.py which we need to run as a cron-
 Create a cron job running this file at least every 4 horus.
     rsync://rsync.torproject.org/tor/dist/tor-browser
     rsync://rsync.torproject.org/tor/dist/manual
-4. Finally rename the config file and enter your email and password for the Bot (GoogBot-server.php) and 
-Google Docs API.
+4. Finally rename the config files and enter your email and passwords:
+config-gmail-user.php.sample => config-gmail-user.php
+config.py.sample => config.py
+
 

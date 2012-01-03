@@ -1,4 +1,5 @@
 lib/config.py
+lib/config-gmail-user.php
 lib/*.pyc
 db/doclist
 zipfiles

@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 /*
 # Copyright (c) 2012 Expression Technologies <info@expressiontech.org>
@@ -24,10 +25,12 @@
 error_reporting(E_ALL & E_STRICT);
 
 include 'lib/XMPPHP/XMPP.php';
+require_once 'lib/config-gmail-user.php';
+
 
 #Use XMPPHP_Log::LEVEL_VERBOSE to get more logging for error reports
 #If this doesn't work, are you running 64-bit PHP with < 5.2.6?
-$conn = new XMPPHP_XMPP('talk.google.com', 5222, 'torbot', $argv[1], 'xmpphp', 'redteam.io', $printlog=true, $loglevel=XMPPHP_Log::LEVEL_INFO);
+$conn = new XMPPHP_XMPP('talk.google.com', 5222, GMAIL_USER, PASSWORD, 'xmpphp', 'GMAIL_DOMAIN', $printlog=true, $loglevel=XMPPHP_Log::LEVEL_INFO);
 
 $conn->autoSubscribe();
 

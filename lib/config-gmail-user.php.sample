@@ -1,0 +1,4 @@
+<?php
+define("GMAIL_ADDRESS", 'user@googbot.torproject.org');
+define("PASSWORD", 'P@SsW0RDh3r3');
+?>
