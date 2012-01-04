@@ -19,12 +19,12 @@
 # USA
 #
 import sys
-import config
-import googledoc
+import lib.config
+import lib.googledoc
 
-client = googledoc.CreateClient()
+client = lib.googledoc.CreateClient()
 
 if (len(sys.argv) > 2):
-    googledoc.ShareWithUser(client,sys.argv[1],sys.argv[2])
+    lib.googledoc.ShareWithUser(client,sys.argv[1],sys.argv[2])
 else:
     print "Error"

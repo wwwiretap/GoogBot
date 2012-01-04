@@ -30,12 +30,15 @@ SETUP
 3. we use a rsync command and run it with a cronjob to maintain a fresh copy 
 of all tor-browser bundles and to create zip files containing a short-manual and the requested 
 tor-browser bundle with signatue file then upload the zip files to Google Docs.
-All the steps in #3 are implemented: sync-all.py which we need to run as a cron-job"
-Create a cron job running this file at least every 4 horus.
+All the steps in #3 are implemented: sync-all.py which we need to run everytime there as a new Tor Browser Bundle release.
+# Note: This file removes all the previously uploaded files and therefore any user with an old file in their Google Docs, would loose access aswell.
+It's actually a pretty nice feature, so we basically force the user to request a new package. We should make this more clear in the Documentation and manuals.
     rsync://rsync.torproject.org/tor/dist/tor-browser
     rsync://rsync.torproject.org/tor/dist/manual
 4. Finally rename the config files and enter your email and passwords:
 config-gmail-user.php.sample => config-gmail-user.php
 config.py.sample => config.py
+5. and run the server this way: ./googbot-server.php the bot acts like a daemon and runs in the background.
+The only way to stop it, is to kill the php ptocess.
 
 

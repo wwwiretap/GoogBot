@@ -5,4 +5,5 @@ lib/gdata/*.pyc
 db/*
 zipfiles/*
 torbrowser/*
+googbot-daemon.log
 manual/*

@@ -34,7 +34,7 @@ languages = lib.config.languages
 commands.getstatus('[ -d torbrowser ] || mkdir torbrowser')
 commands.getstatus('[ -d manual ] || mkdir manual')
 commands.getstatus('[ -d zipfiles ] || mkdir zipfiles')
-
+commands.getstatus('[ -d db ] || mkdir db')
 # create/update local mirror of torbrowser and manual folders
 print subprocess.call(["rsync" ,"-av","--delete","rsync://rsync.torproject.org/tor/dist/torbrowser/","torbrowser/"])
 print subprocess.call(["rsync" ,"-av","--delete","rsync://rsync.torproject.org/tor/dist/manual/","manual/"])
