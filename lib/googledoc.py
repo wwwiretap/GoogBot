@@ -1,6 +1,5 @@
 #!/usr/bin/python
-# Copyright (c) 2012 Expression Technologies <info@expressiontech.org>
-# Copyright (c) 2012 SiNA <sina@redteam.io>
+# Copyright (c) 2012 Red Team LLC <sina@redteam.io>
 # Copyright (c) 2012 The Tor Project, Inc
 #
 # This program is free software; you can redistribute it and/or
@@ -41,7 +40,7 @@ def CreateClient():
   try:
      client.ClientLogin(config.LOGIN_EMAIL, config.EMAIL_PASS, client.source)
   except gdata.client.BadAuthentication:
-    exit('Invalid user credentials given.')
+    exit('Invalid login.')
   except gdata.client.Error:
     exit('Login Error')
   return client
