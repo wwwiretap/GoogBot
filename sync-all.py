@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Copyright (c) 2012 SiNA <sina@redteam.io>
+# Copyright (c) 2012 Red Team LLC <sina@redteam.io>
 # Copyright (c) 2012 The Tor Project, Inc
 #
 # This program is free software; you can redistribute it and/or
