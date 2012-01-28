@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# Copyright (c) 2012 Expression Technologies <info@expressiontech.org>
 # Copyright (c) 2012 SiNA <sina@redteam.io>
 # Copyright (c) 2012 The Tor Project, Inc
 #
